@@ -1,6 +1,6 @@
 # Project: GS-deep-learning
 
-This folder document analysis scripts for genomic selection (GS) experiments and machine-learning models that combine genotype and phenotype data.
+This folder document demonstration scripts for genomic selection (GS) experiments and machine-learning models that combine genotype and phenotype data.
 
 ---
 
