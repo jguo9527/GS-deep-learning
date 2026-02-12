@@ -1,12 +1,12 @@
 # Project: GS-deep-learning
 
-This folder contains analysis scripts for genomic selection (GS) experiments and machine-learning models that combine genotype and phenotype data.
+This folder document analysis scripts for genomic selection (GS) experiments and machine-learning models that combine genotype and phenotype data.
 
 ---
 
 **Contents**
 - `GS-deep-learning/`: R scripts for preprocessing phenotype/genotype data, genomic prediction, and neural-network based models.
-
+- For more detials, visit publication: Multi-Trait Genomic Prediction of Yield-Related Traits in US Soft Wheat under Variable Water Regimes (https://www.mdpi.com/2073-4425/11/11/1270)
 ---
 
 **Overview**
@@ -17,13 +17,12 @@ The scripts in `GS-deep-learning` provide a mostly end-to-end analysis flow:
   - Load and combine multi-year phenotype CSVs, calculate adjusted means/BLUPs with `lmerTest`.
   - Import and impute genotype data (HapMap -> MARKOV imputation via `NAM`).
   - Build hybrid genotypes, PCA/clustering (adegenet) and produce PCA plots.
+  - Cluster training and validation sets by genetic grouping (Discriminant Analysis)
   - Run genomic prediction with `BGLR` (RKHS), `rrBLUP`, and example `tensorflow`/`keras` ML sections.
   - Produces prediction CSVs and PNG figures.
 
 - `cv_ML_MMDL.R` — Multi-output deep-learning (MMDL): imputation, design-matrix construction, Keras multi-output network, CV loops and prediction exports.
-
 - `cv_ML_MSDL.R` — Single-output / simplified deep-learning (SMDL): single-trait training loops, GPU toggle, predictions and performance summaries.
-
 - `rsm.R` — Response surface modeling (`rsm`) to explore tuning surfaces (epochs × neurons) and generate contour/perspective plots.
 
 ---
@@ -52,22 +51,3 @@ R -e "if (!requireNamespace('BiocManager', quietly=TRUE)) install.packages('Bioc
 For `tensorflow`/`keras` follow the official installation guide: https://tensorflow.rstudio.com/.
 
 ---
-
-**Quick start**
-
-1. Open R or RStudio in `GS-deep-learning/`.
-2. Replace `file.choose()` calls or update `setwd()` paths to your local files.
-3. Run the main pipeline:
-
-```r
-source('cv_BGLR_v_DL.R')
-```
-
----
-
-**Next steps I can help with**
-- Convert `file.choose()` to script parameters or a small wrapper CLI.
-- Add an `install_packages.R` to install required packages automatically.
-- Commit this README and create a git tag or release note.
-
-Which of the above would you like me to do next?
